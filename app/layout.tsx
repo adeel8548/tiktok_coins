@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { AnimatedBackground } from "@/components/animated-background";
 import "./globals.css";
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -19,12 +20,12 @@ export const metadata: Metadata = {
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/app/Assests/imgs/main_logo",
+        url: "/app/Assests/imgs/main_logo.png",
         media: "(prefers-color-scheme: dark)",
       },
       {
         url: "/app/Assests/imgs/main_logo.png",
-        type: "image/svg+xml",
+        type: "image/png",
       },
     ],
     apple: "/app/Assests/imgs/main_logo.png",
@@ -38,16 +39,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`font-sans antialiased`}
-        style={{
-          backgroundImage: "url('/Assets/imgs/tiktok.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-        }}
-      >
+      <body className={`font-sans antialiased relative`}>
+        <AnimatedBackground />
         {children}
         <Analytics />
       </body>

@@ -186,23 +186,23 @@ export default function TikTokCoinsPage() {
       )}
 
       {showCheckoutScreen && selectedCoinData && (
-        <div className="min-h-screen bg-white text-gray-900">
-          <div className="flex h-screen">
+        <div className="min-h-screen bg-white text-gray-900 p-4 sm:p-0">
+          <div className="flex flex-col lg:flex-row min-h-screen lg:h-screen">
             {/* Left Side - Selected Coin Info */}
-            <div className="w-1/2 bg-gradient-to-br from-red-50 to-pink-50 p-12 flex flex-col justify-center items-center">
+            <div className="w-full lg:w-1/2 bg-gradient-to-br from-red-50 to-pink-50 p-6 sm:p-8 md:p-12 flex flex-col justify-center items-center relative">
               <button
                 onClick={() => {
                   setShowCheckoutScreen(false)
                   setShowCoinsSection(true)
                 }}
-                className="absolute top-8 left-8 text-gray-600 hover:text-gray-900 text-2xl font-bold transition-colors duration-200"
+                className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 text-gray-600 hover:text-gray-900 text-xl sm:text-2xl font-bold transition-colors duration-200"
               >
                 ← Back
               </button>
               
-              <div className="text-center">
-                <div className="mb-8">
-                  <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
+              <div className="text-center mt-12 sm:mt-0">
+                <div className="mb-6 sm:mb-8">
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden shadow-lg">
                     <Image
                       src={CoinImage}
                       alt="TikTok Coins"
@@ -211,66 +211,66 @@ export default function TikTokCoinsPage() {
                     />
                   </div>
                 </div>
-                <h2 className="text-6xl font-extrabold text-red-600 mb-4">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-red-600 mb-3 sm:mb-4">
                   {selectedCoinData.coins >= 1000 ? `${(selectedCoinData.coins / 1000)}M` : `${selectedCoinData.coins}k`}
                 </h2>
-                <p className="text-2xl text-gray-600 mb-8">TikTok Coins</p>
-                <div className="text-5xl font-bold text-gray-900">
+                <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 sm:mb-8">TikTok Coins</p>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
                   ${selectedCoinData.price}
                 </div>
               </div>
             </div>
 
             {/* Right Side - Payment Methods */}
-            <div className="w-1/2 p-12 flex flex-col justify-center">
-              <h2 className="text-3xl font-bold mb-8 text-gray-900">Select Payment Method</h2>
+            <div className="w-full lg:w-1/2 p-6 sm:p-8 md:p-12 flex flex-col justify-center">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-gray-900">Select Payment Method</h2>
               
-              <div className="grid grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
                 <div
                   onClick={() => handlePaymentSelect("bank")}
-                  className={`p-8 border-2 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
+                  className={`p-4 sm:p-6 md:p-8 border-2 rounded-xl sm:rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
                     selectedPayment === "bank" ? "border-red-600 bg-red-50 shadow-lg" : "border-gray-200 bg-white hover:border-red-300"
                   }`}
                 >
-                  <div className="text-5xl mb-4 text-center">🏦</div>
-                  <div className="text-lg font-semibold text-center text-gray-900">Bank Transfer</div>
+                  <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-4 text-center">🏦</div>
+                  <div className="text-xs sm:text-sm md:text-lg font-semibold text-center text-gray-900">Bank Transfer</div>
                 </div>
 
                 <div
                   onClick={() => handlePaymentSelect("jazz")}
-                  className={`p-8 border-2 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
+                  className={`p-4 sm:p-6 md:p-8 border-2 rounded-xl sm:rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
                     selectedPayment === "jazz" ? "border-red-600 bg-red-50 shadow-lg" : "border-gray-200 bg-white hover:border-red-300"
                   }`}
                 >
-                  <div className="text-5xl mb-4 text-center">📱</div>
-                  <div className="text-lg font-semibold text-center text-gray-900">JazzCash</div>
+                  <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-4 text-center">📱</div>
+                  <div className="text-xs sm:text-sm md:text-lg font-semibold text-center text-gray-900">JazzCash</div>
                 </div>
 
                 <div
                   onClick={() => handlePaymentSelect("easy")}
-                  className={`p-8 border-2 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
+                  className={`p-4 sm:p-6 md:p-8 border-2 rounded-xl sm:rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
                     selectedPayment === "easy" ? "border-red-600 bg-red-50 shadow-lg" : "border-gray-200 bg-white hover:border-red-300"
                   }`}
                 >
-                  <div className="text-5xl mb-4 text-center">💳</div>
-                  <div className="text-lg font-semibold text-center text-gray-900">EasyPaisa</div>
+                  <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-4 text-center">💳</div>
+                  <div className="text-xs sm:text-sm md:text-lg font-semibold text-center text-gray-900">EasyPaisa</div>
                 </div>
 
                 <div
                   onClick={() => handlePaymentSelect("card")}
-                  className={`p-8 border-2 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
+                  className={`p-4 sm:p-6 md:p-8 border-2 rounded-xl sm:rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-lg ${
                     selectedPayment === "card" ? "border-red-600 bg-red-50 shadow-lg" : "border-gray-200 bg-white hover:border-red-300"
                   }`}
                 >
-                  <div className="text-5xl mb-4 text-center">💰</div>
-                  <div className="text-lg font-semibold text-center text-gray-900">Credit Card</div>
+                  <div className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-4 text-center">💰</div>
+                  <div className="text-xs sm:text-sm md:text-lg font-semibold text-center text-gray-900">Credit Card</div>
                 </div>
               </div>
 
               <button
                 onClick={handlePayNow}
                 disabled={!selectedPayment}
-                className="w-full py-6 text-xl font-bold rounded-2xl bg-red-600 hover:bg-red-700 text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="w-full py-4 sm:py-5 md:py-6 text-lg sm:text-xl font-bold rounded-xl sm:rounded-2xl bg-red-600 hover:bg-red-700 text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Pay Now
               </button>

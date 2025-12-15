@@ -109,7 +109,7 @@ export function HeroSection({ onUsernameSubmit, showCoinsSection, onGetCoins, is
               <circle cx="12" cy="12" r="10" fill="#FFD700" stroke="currentColor" strokeWidth="1.5" />
               <circle cx="12" cy="12" r="7" fill="#FFC700" />
             </svg>
-            {isUsernameVerified ? "Get Coins" : "Verify First"}
+            {isUsernameVerified ? "Get Your Pack" : "Verify First"}
           </Button>
         </form>
       </div>

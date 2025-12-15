@@ -15,8 +15,7 @@ interface CoinCardProps {
 export function CoinCard({ coins, price, isSelected, onClick, onBuyNow, isEmailVerified }: CoinCardProps) {
   return (
     <div
-      onClick={onClick}
-      className={`bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 rounded-2xl p-6 text-center cursor-pointer transition-all duration-300 hover:-translate-y-1 ${
+      className={`bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 ${
         isSelected
           ? "border-red-600 shadow-[0_0_30px_rgba(255,0,0,0.5)] bg-gradient-to-br from-[#2a0000] to-[#1a0000]"
           : "border-gray-700 hover:border-red-600"
@@ -44,7 +43,7 @@ export function CoinCard({ coins, price, isSelected, onClick, onBuyNow, isEmailV
           e.stopPropagation()
           if (isEmailVerified) {
             onClick()
-            setTimeout(() => onBuyNow(), 0)
+            onBuyNow()
           }
         }}
         className="cursor-pointer w-full px-6 py-3 text-base font-semibold rounded-xl bg-red-600 hover:bg-red-700 transition-all duration-300 flex items-center justify-center gap-2"

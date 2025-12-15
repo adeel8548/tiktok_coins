@@ -4,11 +4,13 @@ interface ReceiptModalProps {
   isOpen: boolean
   registeredName: string
   coins: number
+  price: number
   verificationId: string
+  bankName?: string
   onClose: () => void
 }
 
-export function ReceiptModal({ isOpen, registeredName, coins, verificationId, onClose }: ReceiptModalProps) {
+export function ReceiptModal({ isOpen, registeredName, coins, price, verificationId, bankName, onClose }: ReceiptModalProps) {
   if (!isOpen) return null
 
   const currentDate = new Date().toLocaleDateString()
@@ -42,6 +44,12 @@ export function ReceiptModal({ isOpen, registeredName, coins, verificationId, on
           <div className="pb-6 border-b border-gray-700">
             <h3 className="text-xl font-semibold text-red-600 mb-4">Payment Details</h3>
             <div className="space-y-3">
+              {bankName && (
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-400">Bank:</span>
+                  <span className="text-white font-semibold">{bankName}</span>
+                </div>
+              )}
               <div className="flex justify-between items-center">
                 <span className="text-gray-400">Register Fees:</span>
                 <span className="text-white font-mono">null</span>
@@ -58,6 +66,10 @@ export function ReceiptModal({ isOpen, registeredName, coins, verificationId, on
             <div className="flex justify-between items-center mb-3">
               <span className="text-gray-400 text-lg">Total Coins:</span>
               <span className="text-red-600 font-bold text-2xl">{coins}k</span>
+            </div>
+            <div className="flex justify-between items-center mb-3">
+              <span className="text-gray-400 text-lg">Total Price:</span>
+              <span className="text-yellow-400 font-bold text-2xl">${price}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-400 text-lg">Status:</span>

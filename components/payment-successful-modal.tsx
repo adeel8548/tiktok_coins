@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+import Coin from "@/app/Assests/imgs/stack-gold-coins_108855-486.jpg"
 interface PaymentSuccessfulModalProps {
   isOpen: boolean
   coins: number
@@ -25,13 +27,14 @@ export function PaymentSuccessfulModal({ isOpen, coins, verificationId, onSendCo
         <h2 className="text-3xl font-bold text-green-500 mb-8">Payment Successful!</h2>
 
         <div className="mb-6 flex justify-center">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="10" fill="#FFD700" stroke="#FFA500" strokeWidth="1.5" />
-            <circle cx="12" cy="12" r="7" fill="#FFC700" stroke="#FFD700" strokeWidth="1" />
-            <text x="12" y="16" fontSize="10" fontWeight="bold" fill="#B8860B" textAnchor="middle">
-              C
-            </text>
-          </svg>
+          <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-lg">
+            <Image
+              src={Coin}
+              alt="Coins"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
 
         <div className="bg-white/5 border border-gray-700 rounded-xl p-6 mb-8 text-left space-y-4">

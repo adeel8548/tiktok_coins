@@ -10,6 +10,7 @@ import { TransferProgressModal } from "@/components/transfer-progress-modal"
 import { RegisterFeeModal } from "@/components/register-fee-modal"
 import { ReceiptModal } from "@/components/receipt-modal"
 import { PaymentDetailsModal } from "@/components/payment-details-modal"
+import { ThankYouModal } from "@/components/thank-you-modal"
 import { Footer } from "@/components/footer"
 import CoinImage from "@/app/Assests/imgs/stack-gold-coins_108855-486.jpg"
 export default function TikTokCoinsPage() {
@@ -33,6 +34,7 @@ export default function TikTokCoinsPage() {
   const [showPaymentLoading, setShowPaymentLoading] = useState(false)
   const [showPaymentDetailsModal, setShowPaymentDetailsModal] = useState(false)
   const [bankName, setBankName] = useState<string | undefined>()
+  const [showThankYou, setShowThankYou] = useState(false)
 
   const generateVerificationId = () => {
     return `VER-${Math.random().toString(36).substring(2, 10).toUpperCase()}`
@@ -134,6 +136,11 @@ export default function TikTokCoinsPage() {
 
   const handleReceiptClose = () => {
     setShowReceipt(false)
+    setShowThankYou(true)
+  }
+
+  const handleThankYouClose = () => {
+    setShowThankYou(false)
     // Reset all states
     setSelectedCoinData(null)
     setSelectedPayment(null)
@@ -379,6 +386,11 @@ export default function TikTokCoinsPage() {
             paymentMethod={selectedPayment || ""}
             onConfirm={handlePaymentDetailsConfirm}
             onClose={() => setShowPaymentDetailsModal(false)}
+          />
+
+          <ThankYouModal
+            isOpen={showThankYou}
+            onClose={handleThankYouClose}
           />
         </>
       )}

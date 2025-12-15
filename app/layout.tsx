@@ -13,22 +13,9 @@ export const metadata: Metadata = {
   description:
     "Purchase TikTok coins instantly with secure payment methods. Fast, secure, and easy coin transfers.",
   generator: "v0.app",
-  icons: {
-    icon: [
-      {
-        url: "/app/Assests/imgs/main_logo.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/app/Assests/imgs/main_logo.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/app/Assests/imgs/main_logo.png",
-        type: "image/png",
-      },
-    ],
-    apple: "/app/Assests/imgs/main_logo.png",
+    icons: {
+    icon: "/app/Assests/imgs/main_logo.png", // yahan spelling sahi honi chahiye
+    apple: "/app/Assets/imgs/main_logo.png",
   },
 };
 
@@ -39,8 +26,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased relative`}>
-        <AnimatedBackground />
+      <body
+        className="font-sans antialiased relative"
+        style={{
+          backgroundImage: "url('/app/Assests/imgs/tiktok.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          minHeight: "100vh",
+          // color: "#FFFFFF",
+        
+        }}
+      >
         {children}
         <Analytics />
       </body>

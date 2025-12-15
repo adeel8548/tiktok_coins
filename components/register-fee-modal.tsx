@@ -27,7 +27,7 @@ export function RegisterFeeModal({ isOpen, coins, verificationId, onPayRegisterF
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 animate-in fade-in duration-300">
-      <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-yellow-600 rounded-3xl p-12 max-w-2xl w-[90%] text-center shadow-[0_0_50px_rgba(234,179,8,0.3)] animate-in zoom-in duration-300">
+      <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-yellow-600 rounded-3xl p-4 md:p-12 max-w-2xl w-[90%] text-center shadow-[0_0_50px_rgba(234,179,8,0.3)] animate-in zoom-in duration-300">
         {isLoading ? (
           <>
             <h2 className="text-3xl font-bold mb-8">Payment Processing...</h2>

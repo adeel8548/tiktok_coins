@@ -17,16 +17,16 @@ export function PaymentSuccessfulModal({ isOpen, coins, verificationId, onSendCo
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 animate-in fade-in duration-300">
-      <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-green-600 rounded-3xl p-12 max-w-2xl w-[90%] text-center shadow-[0_0_50px_rgba(34,197,94,0.3)] animate-in zoom-in duration-300">
-        <div className="mb-6 inline-flex items-center justify-center w-24 h-24 bg-green-600 rounded-full">
-          <svg className="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+      <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-green-600 rounded-3xl p-4 md:p-12 max-w-2xl w-[90%] text-center shadow-[0_0_50px_rgba(34,197,94,0.3)] animate-in zoom-in duration-300">
+        <div className="mb-2 md:mb-6 inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 bg-green-600 rounded-full">
+          <svg className="w-10 h-10 md:w-16 md:h-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
 
-        <h2 className="text-3xl font-bold text-green-500 mb-8">Payment Successful!</h2>
+        <h2 className="text-3xl font-bold text-green-500 mb-6 md:mb-8">Payment Successful!</h2>
 
-        <div className="mb-6 flex justify-center">
+        <div className="mb-2 md:mb-6 flex justify-center">
           <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-lg">
             <Image
               src={Coin}
@@ -37,7 +37,7 @@ export function PaymentSuccessfulModal({ isOpen, coins, verificationId, onSendCo
           </div>
         </div>
 
-        <div className="bg-white/5 border border-gray-700 rounded-xl p-6 mb-8 text-left space-y-4">
+        <div className="bg-white/5 border border-gray-700 rounded-xl p-2 md:p-6 mb-3 md:mb-8 text-left space-y-4">
           <div className="flex justify-between items-center pb-4 border-b border-gray-700">
             <span className="text-gray-400">Verification ID:</span>
             <span className="text-white font-mono font-semibold">{verificationId}</span>

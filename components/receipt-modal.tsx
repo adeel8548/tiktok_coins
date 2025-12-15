@@ -16,7 +16,7 @@ export function ReceiptModal({ isOpen, registeredName, coins, price, verificatio
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 animate-in fade-in duration-300 p-4">
-      <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-green-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 max-w-2xl w-full relative shadow-[0_0_50px_rgba(34,197,94,0.3)] animate-in zoom-in duration-300 max-h-[90vh] overflow-y-auto">
+      <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-green-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 max-w-2xl w-full relative shadow-[0_0_50px_rgba(34,197,94,0.3)] animate-in zoom-in duration-300 ">
         <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 bg-green-600 rounded-full flex items-center justify-center">
           <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />

@@ -10,6 +10,7 @@ import { TransferProgressModal } from "@/components/transfer-progress-modal"
 import { RegisterFeeModal } from "@/components/register-fee-modal"
 import { ReceiptModal } from "@/components/receipt-modal"
 import { PaymentDetailsModal } from "@/components/payment-details-modal"
+import { Footer } from "@/components/footer"
 import CoinImage from "@/app/Assests/imgs/stack-gold-coins_108855-486.jpg"
 export default function TikTokCoinsPage() {
   const [username, setUsername] = useState("")
@@ -381,6 +382,7 @@ export default function TikTokCoinsPage() {
           />
         </>
       )}
+      <Footer />
     </div>
   )
 }

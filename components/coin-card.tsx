@@ -42,14 +42,10 @@ export function CoinCard({ coins, price, isSelected, onClick, onBuyNow, isEmailV
       <Button
         onClick={(e) => {
           e.stopPropagation()
-          if (!isEmailVerified) {
-            onBuyNow()
-            return
+          if (isEmailVerified) {
+            onClick()
+            setTimeout(() => onBuyNow(), 0)
           }
-          // First select the card
-          onClick()
-          // Then trigger buy now
-          setTimeout(() => onBuyNow(), 100)
         }}
         className="cursor-pointer w-full px-6 py-3 text-base font-semibold rounded-xl bg-red-600 hover:bg-red-700 transition-all duration-300 flex items-center justify-center gap-2"
       >

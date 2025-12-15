@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy TikTok Coins Instantly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #000000 0%, #1a0000 50%, #ff0000 100%);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #ff0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: #ccc;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .subtitle span {
+            position: relative;
+        }
+
+        .subtitle span:not(:last-child)::after {
+            content: '•';
+            position: absolute;
+            right: -0.6rem;
+            color: #ff0000;
+        }
+
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        input[type="email"] {
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            border: 2px solid #333;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="email"]:focus {
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            background: #ff0000;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 2px solid #ff0000;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            animation: scaleIn 0.3s ease;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .coins-section {
+            min-height: 100vh;
+            background: #000;
+            padding: 4rem 2rem;
+            transform: translateY(100%);
+            transition: transform 0.6s ease;
+            opacity: 0;
+        }
+
+        .coins-section.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #ff0000;
+        }
+
+        .coins-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .coin-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 2px solid #333;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .coin-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff0000;
+        }
+
+        .coin-card.selected {
+            border-color: #ff0000;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            background: linear-gradient(135deg, #2a0000 0%, #1a0000 100%);
+        }
+
+        .coin-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ff0000;
+            margin-bottom: 0.5rem;
+        }
+
+        .coin-label {
+            font-size: 1.2rem;
+            color: #999;
+            margin-bottom: 1rem;
+        }
+
+        .coin-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .payment-section {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border-radius: 16px;
+            border: 2px solid #333;
+            display: none;
+        }
+
+        .payment-section.active {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .selected-info {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .selected-info h3 {
+            font-size: 1.5rem;
+            color: #ff0000;
+            margin-bottom: 0.5rem;
+        }
+
+        .selected-info p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid #333;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method:hover {
+            border-color: #ff0000;
+        }
+
+        .payment-method.selected {
+            border-color: #ff0000;
+            background: rgba(255, 0, 0, 0.1);
+        }
+
+        .payment-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ff0000;
+            border-radius: 8px;
+            font-size: 1.5rem;
+        }
+
+        .payment-name {
+            flex: 1;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .progress-modal {
+            max-width: 600px;
+        }
+
+        .progress-container {
+            margin: 2rem 0;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 30px;
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #333;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff0000, #ff6666);
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .transfer-text {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            color: #ccc;
+        }
+
+        .username-highlight {
+            color: #ff0000;
+            font-weight: 700;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .coins-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section" id="heroSection">
+        <div class="hero-content">
+            <h1>Buy TikTok Coins Instantly</h1>
+            <div class="subtitle">
+                <span>Fast</span>
+                <span>Secure</span>
+                <span>Easy</span>
+            </div>
+            <form class="email-form" id="emailForm">
+                <input 
+                    type="email" 
+                    id="emailInput" 
+                    placeholder="Enter your email address" 
+                    required
+                />
+                <button type="submit" class="btn-primary">Verify Email</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Coins Section -->
+    <section class="coins-section" id="coinsSection">
+        <div class="container">
+            <h2 class="section-title">Choose Your Coins</h2>
+            <div class="coins-grid" id="coinsGrid">
+                <div class="coin-card" data-coins="50" data-price="250">
+                    <div class="coin-amount">50</div>
+                    <div class="coin-label">Coins</div>
+                    <div class="coin-price">250 PKR</div>
+                </div>
+                <div class="coin-card" data-coins="100" data-price="500">
+                    <div class="coin-amount">100</div>
+                    <div class="coin-label">Coins</div>
+                    <div class="coin-price">500 PKR</div>
+                </div>
+                <div class="coin-card" data-coins="150" data-price="750">
+                    <div class="coin-amount">150</div>
+                    <div class="coin-label">Coins</div>
+                    <div class="coin-price">750 PKR</div>
+                </div>
+                <div class="coin-card" data-coins="200" data-price="1000">
+                    <div class="coin-amount">200</div>
+                    <div class="coin-label">Coins</div>
+                    <div class="coin-price">1000 PKR</div>
+                </div>
+            </div>
+
+            <!-- Payment Section -->
+            <div class="payment-section" id="paymentSection">
+                <div class="selected-info">
+                    <h3 id="selectedCoins">50 Coins</h3>
+                    <p id="selectedPrice">250 PKR</p>
+                </div>
+                <h3 style="margin-bottom: 1rem; text-align: center;">Select Payment Method</h3>
+                <div class="payment-methods" id="paymentMethods">
+                    <div class="payment-method" data-method="bank">
+                        <div class="payment-icon">🏦</div>
+                        <div class="payment-name">Bank Transfer</div>
+                    </div>
+                    <div class="payment-method" data-method="jazz">
+                        <div class="payment-icon">📱</div>
+                        <div class="payment-name">JazzCash</div>
+                    </div>
+                    <div class="payment-method" data-method="easy">
+                        <div class="payment-icon">💳</div>
+                        <div class="payment-name">EasyPaisa</div>
+                    </div>
+                </div>
+                <button class="btn-primary" id="payNowBtn" style="width: 100%;" disabled>Pay Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Verification Modal -->
+    <div class="modal-overlay" id="verificationModal">
+        <div class="modal">
+            <h2>Email Verified Successfully 🎉</h2>
+            <p>You can now purchase TikTok coins</p>
+        </div>
+    </div>
+
+    <!-- Progress Modal -->
+    <div class="modal-overlay" id="progressModal">
+        <div class="modal progress-modal">
+            <div class="success-icon" id="successIcon" style="display: none;">✅</div>
+            <h2 id="progressTitle">Transferring Coins</h2>
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressBar">0%</div>
+                </div>
+            </div>
+            <p class="transfer-text" id="transferText">
+                Coins are being transferred to <span class="username-highlight" id="username">user</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let userEmail = '';
+        let selectedCoins = null;
+        let selectedPrice = null;
+        let selectedPayment = null;
+
+        // Email Form Submission
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            userEmail = email;
+
+            // Show verification modal
+            const modal = document.getElementById('verificationModal');
+            modal.classList.add('active');
+
+            // Close modal and show coins section after 2 seconds
+            setTimeout(() => {
+                modal.classList.remove('active');
+                document.getElementById('coinsSection').classList.add('active');
+                // Smooth scroll to coins section
+                document.getElementById('coinsSection').scrollIntoView({ behavior: 'smooth' });
+            }, 2000);
+        });
+
+        // Coin Card Selection
+        const coinCards = document.querySelectorAll('.coin-card');
+        coinCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove selected class from all cards
+                coinCards.forEach(c => c.classList.remove('selected'));
+                
+                // Add selected class to clicked card
+                this.classList.add('selected');
+                
+                // Get selected values
+                selectedCoins = this.dataset.coins;
+                selectedPrice = this.dataset.price;
+                
+                // Update payment section
+                document.getElementById('selectedCoins').textContent = `${selectedCoins} Coins`;
+                document.getElementById('selectedPrice').textContent = `${selectedPrice} PKR`;
+                
+                // Show payment section
+                document.getElementById('paymentSection').classList.add('active');
+                
+                // Reset payment selection
+                selectedPayment = null;
+                document.querySelectorAll('.payment-method').forEach(p => p.classList.remove('selected'));
+                document.getElementById('payNowBtn').disabled = true;
+                
+                // Smooth scroll to payment section
+                setTimeout(() => {
+                    document.getElementById('paymentSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            });
+        });
+
+        // Payment Method Selection
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', function() {
+                // Remove selected class from all methods
+                paymentMethods.forEach(m => m.classList.remove('selected'));
+                
+                // Add selected class to clicked method
+                this.classList.add('selected');
+                
+                // Enable pay now button
+                selectedPayment = this.dataset.method;
+                document.getElementById('payNowBtn').disabled = false;
+            });
+        });
+
+        // Pay Now Button
+        document.getElementById('payNowBtn').addEventListener('click', function() {
+            // Extract username from email
+            const username = userEmail.split('@')[0];
+            document.getElementById('username').textContent = username;
+            
+            // Show progress modal
+            const progressModal = document.getElementById('progressModal');
+            progressModal.classList.add('active');
+            
+            // Reset progress
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = '0%';
+            progressBar.textContent = '0%';
+            document.getElementById('successIcon').style.display = 'none';
+            document.getElementById('progressTitle').textContent = 'Transferring Coins';
+            document.getElementById('progressContainer').style.display = 'block';
+            document.getElementById('transferText').style.display = 'block';
+            
+            // Animate progress
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 1;
+                progressBar.style.width = progress + '%';
+                progressBar.textContent = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Show success
+                    setTimeout(() => {
+                        document.getElementById('progressContainer').style.display = 'none';
+                        document.getElementById('transferText').style.display = 'none';
+                        document.getElementById('successIcon').style.display = 'block';
+                        document.getElementById('progressTitle').textContent = 'Coins Transferred Successfully';
+                        
+                        // Close modal after 3 seconds
+                        setTimeout(() => {
+                            progressModal.classList.remove('active');
+                        }, 3000);
+                    }, 500);
+                }
+            }, 30);
+        });
+
+        // Close modals on overlay click
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

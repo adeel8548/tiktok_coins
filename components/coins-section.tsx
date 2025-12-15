@@ -74,20 +74,20 @@ export function CoinsSection({
   if (!isVisible) return null;
 
   return (
-    <section ref={sectionRef} className=" bg-black px-4 py-16 animate-slide-up">
+    <section ref={sectionRef} className="bg-black px-3 sm:px-4 py-12 sm:py-16 animate-slide-up">
       <div className="w-full relative">
-        <div className="fixed w-full left-0">
+        <div className="w-full mb-8 sm:mb-12">
           <button
             onClick={onBack}
-            className="absolute top-0 left-4 text-white hover:text-red-600 text-3xl font-bold transition-colors duration-200 z-10"
+            className="absolute top-0 left-2 sm:left-4 text-white hover:text-red-600 text-2xl sm:text-3xl font-bold transition-colors duration-200 z-10"
           >
             ←
           </button>
-          <h2 className="text-center text-4xl font-bold mb-12 text-red-600">
+          <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold text-red-600 px-8">
             Choose Your Pack
           </h2>
         </div>
-        <div className="pt-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 mb-16  overflow-y-auto scrollbar-thin scrollbar-thumb-red-600 scrollbar-track-gray-800 pr-2">
+        <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-16 overflow-y-auto scrollbar-thin scrollbar-thumb-red-600 scrollbar-track-gray-800 pr-1 sm:pr-2">
           {coinOptions.map((option) => (
             <CoinCard
               key={option.coins}

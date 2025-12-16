@@ -10,7 +10,7 @@ export function ThankYouModal({ isOpen, onClose }: ThankYouModalProps) {
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 animate-in fade-in duration-300 p-4">
-      <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-red-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 max-w-2xl w-full relative shadow-[0_0_50px_rgba(255,0,0,0.3)] animate-in zoom-in duration-300 text-center max-h-[90vh] overflow-y-auto">
+      <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-red-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 max-w-2xl w-full relative shadow-[0_0_50px_rgba(255,0,0,0.3)] animate-in zoom-in duration-300 text-center ">
         {/* Animated checkmark */}
         <div className="mb-6 sm:mb-8 flex justify-center">
           <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-red-600/20 rounded-full flex items-center justify-center animate-pulse">

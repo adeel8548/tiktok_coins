@@ -84,7 +84,7 @@ export function HeroSection({ onUsernameSubmit, showCoinsSection, onGetCoins, is
             <Button
               type="submit"
               disabled={!username || !emailPhone || isUsernameVerified}
-              className={`w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base font-semibold rounded-lg transition-all duration-300 sm:self-end ${
+              className={`w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-6 text-sm sm:text-base font-semibold rounded-lg transition-all duration-300 sm:self-end ${
                 username && emailPhone && !isUsernameVerified
                   ? "bg-red-600 hover:bg-red-700"
                   : "bg-gray-600 cursor-not-allowed opacity-50"
@@ -99,7 +99,7 @@ export function HeroSection({ onUsernameSubmit, showCoinsSection, onGetCoins, is
             type="button"
             onClick={onGetCoins}
             disabled={!isUsernameVerified}
-            className={`px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 ${
+            className={`px-6 sm:px-8 py-3 sm:py-6 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 ${
               isUsernameVerified
                 ? "bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 hover:shadow-[0_0_30px_rgba(255,0,0,0.6)] hover:-translate-y-0.5"
                 : "bg-gradient-to-r from-gray-600 to-gray-700 cursor-not-allowed opacity-50"

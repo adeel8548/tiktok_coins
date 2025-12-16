@@ -7,12 +7,11 @@ interface CoinCardProps {
   coins: number
   price: number
   isSelected: boolean
-  onClick: () => void
   onBuyNow: () => void
   isEmailVerified: boolean
 }
 
-export function CoinCard({ coins, price, isSelected, onClick, onBuyNow, isEmailVerified }: CoinCardProps) {
+export function CoinCard({ coins, price, isSelected, onBuyNow, isEmailVerified }: CoinCardProps) {
   return (
     <div
       className={`bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1 ${
@@ -42,7 +41,6 @@ export function CoinCard({ coins, price, isSelected, onClick, onBuyNow, isEmailV
         onClick={(e) => {
           e.stopPropagation()
           if (isEmailVerified) {
-            onClick()
             onBuyNow()
           }
         }}

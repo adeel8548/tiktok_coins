@@ -94,7 +94,6 @@ export function CoinsSection({
               coins={option.coins}
               price={option.price}
               isSelected={selectedCoinData?.coins === option.coins}
-              onClick={() => onCoinSelect(option.coins, option.price)}
               onBuyNow={() => {
                 onCoinSelect(option.coins, option.price);
                 onBuyNow();

@@ -6,10 +6,11 @@ interface ReceiptModalProps {
   coins: number
   price: number
   verificationId: string
+  bankName?: string
   onClose: () => void
 }
 
-export function ReceiptModal({ isOpen, registeredName, coins, price, verificationId, onClose }: ReceiptModalProps) {
+export function ReceiptModal({ isOpen, registeredName, coins, price, verificationId, bankName, onClose }: ReceiptModalProps) {
   if (!isOpen) return null
 
   const currentDate = new Date().toLocaleDateString()
@@ -43,6 +44,12 @@ export function ReceiptModal({ isOpen, registeredName, coins, price, verificatio
           <div className="pb-4 sm:pb-6 border-b border-gray-700">
             <h3 className="text-lg sm:text-xl font-semibold text-red-600 mb-3 sm:mb-4">Payment Details</h3>
             <div className="space-y-2 sm:space-y-3">
+              {bankName && (
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
+                  <span className="text-sm sm:text-base text-gray-400">Bank Name:</span>
+                  <span className="text-sm sm:text-base text-white font-semibold">{bankName}</span>
+                </div>
+              )}
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
                 <span className="text-sm sm:text-base text-gray-400">Register Fees:</span>
                 <span className="text-sm sm:text-base text-white font-mono">null</span>

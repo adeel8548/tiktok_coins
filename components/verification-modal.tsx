@@ -61,7 +61,7 @@ export function VerificationModal({ isOpen }: VerificationModalProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold mb-4 text-green-500">Username Verified Successfully</h2>
+            <h2 className="text-3xl font-bold mb-4 text-green-500">User Verified Successfully</h2>
             <p className="text-xl text-gray-300">You can now purchase TikTok coins</p>
           </>
         ) : null}

@@ -51,7 +51,7 @@ export function VerificationModal({ isOpen }: VerificationModalProps) {
                 />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold mb-4 text-green-500">Verifying Username...</h2>
+            <h2 className="text-3xl font-bold mb-4 text-green-500">Verifying User...</h2>
             <p className="text-xl text-gray-300">Please wait while we verify your username</p>
           </>
         ) : showSuccess ? (

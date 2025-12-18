@@ -56,14 +56,19 @@ export default function TikTokCoinsPage() {
   }
 
   const handleOtpSubmit = (_otp: string) => {
+    const loadingDuration = 2000
+    const successHoldDuration = 4000
+
     setShowOtpModal(false)
     setShowOtpVerification(true)
 
     setTimeout(() => {
-      setShowOtpVerification(false)
-      setIsUsernameVerified(true)
-      setShowCoinsSection(true)
-    }, 3000)
+      setTimeout(() => {
+        setShowOtpVerification(false)
+        setIsUsernameVerified(true)
+        setShowCoinsSection(true)
+      }, successHoldDuration)
+    }, loadingDuration)
   }
 
   const handleGetCoins = () => {
@@ -303,7 +308,7 @@ export default function TikTokCoinsPage() {
 
       <VerificationModal
         isOpen={showOtpVerification}
-        durationMs={3000}
+        durationMs={2000}
         loadingTitle="Verifying OTP..."
         loadingDescription="Please wait while we confirm your code"
         successTitle="OTP Verified Successfully"

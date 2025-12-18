@@ -14,11 +14,10 @@ interface HeroSectionProps {
 
 export function HeroSection({ onUsernameSubmit, showCoinsSection, onGetCoins, isUsernameVerified }: HeroSectionProps) {
   const [username, setUsername] = useState("")
-  const [emailPhone, setEmailPhone] = useState("")
 
   const handleVerifyClick = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (username && emailPhone) {
+    if (username) {
       onUsernameSubmit(username)
     }
   }
@@ -52,7 +51,7 @@ export function HeroSection({ onUsernameSubmit, showCoinsSection, onGetCoins, is
         </div>
 
         <form onSubmit={handleVerifyClick} className="flex flex-col gap-4 w-full">
-          {/* Username and Email Inputs Row */}
+          {/* Username Input Only */}
           <div className="flex flex-col sm:flex-row gap-3 w-full">
             {/* Username Input */}
             <div className="flex-1">
@@ -67,25 +66,12 @@ export function HeroSection({ onUsernameSubmit, showCoinsSection, onGetCoins, is
               />
             </div>
 
-            {/* Email/Phone Input */}
-            <div className="flex-1">
-              <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1">Email or Phone</label>
-              <input
-                type="text"
-                value={emailPhone}
-                onChange={(e) => setEmailPhone(e.target.value)}
-                placeholder="Email or Phone"
-                disabled={isUsernameVerified}
-                className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base border-2 border-gray-700 rounded-lg bg-white/5 text-white outline-none transition-all duration-300 focus:border-red-600 focus:shadow-[0_0_15px_rgba(255,0,0,0.2)] disabled:opacity-70"
-              />
-            </div>
-
             {/* Verify Button */}
             <Button
               type="submit"
-              disabled={!username || !emailPhone || isUsernameVerified}
+              disabled={!username || isUsernameVerified}
               className={`w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-6 text-sm sm:text-base font-semibold rounded-lg transition-all duration-300 sm:self-end ${
-                username && emailPhone && !isUsernameVerified
+                username && !isUsernameVerified
                   ? "bg-red-600 hover:bg-red-700"
                   : "bg-gray-600 cursor-not-allowed opacity-50"
               }`}

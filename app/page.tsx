@@ -51,7 +51,8 @@ export default function TikTokCoinsPage() {
 
     setTimeout(() => {
       setShowVerification(false)
-      setShowOtpModal(true)
+      setIsUsernameVerified(true)
+      setShowCoinsSection(true)
     }, 8000)
   }
 

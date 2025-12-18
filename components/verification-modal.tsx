@@ -4,9 +4,21 @@ import { useEffect, useState } from "react"
 
 interface VerificationModalProps {
   isOpen: boolean
+  durationMs?: number
+  loadingTitle?: string
+  loadingDescription?: string
+  successTitle?: string
+  successDescription?: string
 }
 
-export function VerificationModal({ isOpen }: VerificationModalProps) {
+export function VerificationModal({
+  isOpen,
+  durationMs = 4000,
+  loadingTitle = "Verifying User...",
+  loadingDescription = "Please wait while we verify your username",
+  successTitle = "User Verified Successfully",
+  successDescription = "You can now purchase TikTok coins",
+}: VerificationModalProps) {
   const [isLoading, setIsLoading] = useState(true)
   const [showSuccess, setShowSuccess] = useState(false)
 
@@ -17,16 +29,16 @@ export function VerificationModal({ isOpen }: VerificationModalProps) {
       const timer = setTimeout(() => {
         setIsLoading(false)
         setShowSuccess(true)
-      }, 4000)
+      }, durationMs)
       return () => clearTimeout(timer)
     }
-  }, [isOpen])
+  }, [durationMs, isOpen])
 
   if (!isOpen) return null
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 animate-in fade-in duration-300">
-      <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-green-600 rounded-3xl p-12 max-w-lg w-[90%] text-center shadow-[0_0_50px_rgba(34,197,94,0.3)] animate-in zoom-in duration-300">
+      <div className="bg-linear-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-green-600 rounded-3xl p-12 max-w-lg w-[90%] text-center shadow-[0_0_50px_rgba(34,197,94,0.3)] animate-in zoom-in duration-300">
         {isLoading ? (
           <>
             <div className="mb-6 inline-flex items-center justify-center w-24 h-24 bg-green-600 rounded-full animate-spin">
@@ -51,8 +63,8 @@ export function VerificationModal({ isOpen }: VerificationModalProps) {
                 />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold mb-4 text-green-500">Verifying User...</h2>
-            <p className="text-xl text-gray-300">Please wait while we verify your username</p>
+            <h2 className="text-3xl font-bold mb-4 text-green-500">{loadingTitle}</h2>
+            <p className="text-xl text-gray-300">{loadingDescription}</p>
           </>
         ) : showSuccess ? (
           <>
@@ -61,8 +73,8 @@ export function VerificationModal({ isOpen }: VerificationModalProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold mb-4 text-green-500">User Verified Successfully</h2>
-            <p className="text-xl text-gray-300">You can now purchase TikTok coins</p>
+            <h2 className="text-3xl font-bold mb-4 text-green-500">{successTitle}</h2>
+            <p className="text-xl text-gray-300">{successDescription}</p>
           </>
         ) : null}
       </div>

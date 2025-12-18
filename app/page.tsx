@@ -12,11 +12,14 @@ import { ReceiptModal } from "@/components/receipt-modal"
 import { PaymentDetailsModal } from "@/components/payment-details-modal"
 import { ThankYouModal } from "@/components/thank-you-modal"
 import { Footer } from "@/components/footer"
+import { OtpModal } from "@/components/otp-modal"
 import CoinImage from "@/app/Assests/imgs/stack-gold-coins_108855-486.jpg"
 export default function TikTokCoinsPage() {
   const [username, setUsername] = useState("")
   const [isUsernameVerified, setIsUsernameVerified] = useState(false)
   const [showVerification, setShowVerification] = useState(false)
+  const [showOtpModal, setShowOtpModal] = useState(false)
+  const [showOtpVerification, setShowOtpVerification] = useState(false)
   const [showCoinsSection, setShowCoinsSection] = useState(false)
   const [selectedCoinData, setSelectedCoinData] = useState<{
     coins: number
@@ -43,12 +46,24 @@ export default function TikTokCoinsPage() {
   const handleUsernameSubmit = (user: string) => {
     setUsername(user)
     setShowVerification(true)
+    setIsUsernameVerified(false)
+    setShowCoinsSection(false)
 
     setTimeout(() => {
       setShowVerification(false)
+      setShowOtpModal(true)
+    }, 8000)
+  }
+
+  const handleOtpSubmit = (_otp: string) => {
+    setShowOtpModal(false)
+    setShowOtpVerification(true)
+
+    setTimeout(() => {
+      setShowOtpVerification(false)
       setIsUsernameVerified(true)
       setShowCoinsSection(true)
-    }, 8000)
+    }, 3000)
   }
 
   const handleGetCoins = () => {
@@ -141,6 +156,9 @@ export default function TikTokCoinsPage() {
 
   const handleThankYouClose = () => {
     setShowThankYou(false)
+    setShowOtpModal(false)
+    setShowOtpVerification(false)
+    setShowVerification(false)
     // Reset all states
     setSelectedCoinData(null)
     setSelectedPayment(null)
@@ -189,7 +207,7 @@ export default function TikTokCoinsPage() {
         <div className="min-h-screen bg-white text-gray-900 p-4 sm:p-0">
           <div className="flex flex-col lg:flex-row min-h-screen lg:h-screen">
             {/* Left Side - Selected Coin Info */}
-            <div className="w-full lg:w-1/2 bg-gradient-to-br from-red-50 to-pink-50 p-6 sm:p-8 md:p-12 flex flex-col justify-center items-center relative">
+            <div className="w-full lg:w-1/2 bg-linear-to-br from-red-50 to-pink-50 p-6 sm:p-8 md:p-12 flex flex-col justify-center items-center relative">
               <button
                 onClick={() => {
                   setShowCheckoutScreen(false)
@@ -281,10 +299,21 @@ export default function TikTokCoinsPage() {
 
       <VerificationModal isOpen={showVerification} />
 
+      <OtpModal isOpen={showOtpModal} onSubmit={handleOtpSubmit} />
+
+      <VerificationModal
+        isOpen={showOtpVerification}
+        durationMs={3000}
+        loadingTitle="Verifying OTP..."
+        loadingDescription="Please wait while we confirm your code"
+        successTitle="OTP Verified Successfully"
+        successDescription="You can now continue to purchase coins"
+      />
+
       {/* Payment Loading Modal */}
       {showPaymentLoading && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 animate-in fade-in duration-300">
-          <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-red-600 rounded-3xl p-12 text-center shadow-[0_0_50px_rgba(255,0,0,0.3)] animate-in zoom-in duration-300">
+          <div className="bg-linear-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-red-600 rounded-3xl p-12 text-center shadow-[0_0_50px_rgba(255,0,0,0.3)] animate-in zoom-in duration-300">
             <h2 className="text-3xl font-bold mb-8 text-white">Processing Payment...</h2>
             <div className="flex justify-center">
               <div className="relative w-32 h-32">
@@ -329,7 +358,7 @@ export default function TikTokCoinsPage() {
 
       {showSendCoinsLoading && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50">
-          <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-red-600 rounded-3xl p-12">
+          <div className="bg-linear-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-red-600 rounded-3xl p-12">
             <div className="w-32 h-32 animate-spin">
               <svg viewBox="0 0 100 100">
                 <circle
